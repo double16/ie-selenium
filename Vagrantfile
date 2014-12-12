@@ -5,7 +5,7 @@
 VAGRANTFILE_API_VERSION = "2"
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
-  config.vm.post_up_message = "Execute ./post-boot.sh to install Selenium in each VM."
+  config.vm.post_up_message = "Execute ./post-boot.sh to install Selenium in each VM.\nConnect Selenium to http://localhost:44444/wd/hub"
 
   config.vm.define "IE6_WinXP" do |v|
     v.vm.box = "IE6_WinXP"
@@ -61,6 +61,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # within the machine from a port on the host machine. In the example below,
   # accessing "localhost:8080" will access port 80 on the guest machine.
   # config.vm.network "forwarded_port", guest: 80, host: 8080
+  config.vm.network "forwarded_port", guest: 4444, host: 44444
 
   # Create a private network, which allows host-only access to the machine
   # using a specific IP.
