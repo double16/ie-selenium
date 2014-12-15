@@ -29,3 +29,9 @@ After all boxes are created:
 ```
 ./post-boot.sh
 ```
+
+If you want to install Selenium on a single box (replace IE10_Win7 with the box name):
+```
+./post-boot-machine.sh $(cat .vagrant/machines/IE10_Win7/virtualbox/id)
+```
+
