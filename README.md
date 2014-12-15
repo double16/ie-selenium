@@ -12,7 +12,7 @@ Selenium code and configurations have been borrowed from https://github.com/conc
 
 Some configurations based on https://gist.github.com/tvjames/6750255.
 
-The scripts were written on Mac OS X 10.9. They may not work on Linux or cygwin. Send pull requests if you'd like to fix
+The scripts were written on Mac OS X 10.10. They may not work on Linux or cygwin. Send pull requests if you'd like to fix
 them.
 
 How To
