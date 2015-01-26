@@ -2,8 +2,8 @@
 
 # Updates a new Vagrant machine based on modernie to run selenium
 
-set -x
-set -e
+#set -x
+#set -e
 
 if [ -z "$1" ]; then
 	echo Missing VM ID
@@ -31,7 +31,7 @@ if [ ! -f "${DEUAC}" ]; then
 fi
 if [ ! -f "${JREWIN}" ]; then
 	downloads_needed=1
-	echo "Windows JRE missing, download into ${DOWNLOADS} from http://www.oracle.com/technetwork/java/javase/overview/index.html" >&2
+	echo "Windows JRE missing, download into ${DOWNLOADS} from http://www.oracle.com/technetwork/java/javase/downloads/index.html" >&2
 fi
 if [ ! -f "${SELENIUM}" ]; then
 	downloads_needed=1
