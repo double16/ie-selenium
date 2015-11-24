@@ -9,47 +9,52 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   config.vm.define "IE6_WinXP" do |v|
     v.vm.box = "IE6_WinXP"
-    v.vm.box_url = "http://aka.ms/vagrant-xp-ie6"
+    v.vm.box_url = "https://az792536.vo.msecnd.net/vms/VMBuild_20150916/Vagrant/IE6/IE6.XP.Vagrant.zip"
   end
 
   config.vm.define "IE8_WinXP" do |v|
     v.vm.box = "IE8_WinXP"
-    v.vm.box_url = "http://aka.ms/vagrant-xp-ie8"
+    v.vm.box_url = "https://az792536.vo.msecnd.net/vms/VMBuild_20150916/Vagrant/IE8/IE8.XP.Vagrant.zip"
   end
 
   config.vm.define "IE7_Vista" do |v|
     v.vm.box = "IE7_Vista"
-    v.vm.box_url = "http://aka.ms/vagrant-vista-ie7"
+    v.vm.box_url = "https://az792536.vo.msecnd.net/vms/VMBuild_20150916/Vagrant/IE7/IE7.Vista.Vagrant.zip"
   end
 
   config.vm.define "IE8_Win7" do |v|
     v.vm.box = "IE8_Win7"
-    v.vm.box_url = "http://aka.ms/vagrant-win7-ie8"
+    v.vm.box_url = "https://az792536.vo.msecnd.net/vms/VMBuild_20150916/Vagrant/IE8/IE8.Win7.Vagrant.zip"
   end
 
   config.vm.define "IE9_Win7" do |v|
     v.vm.box = "IE9_Win7"
-    v.vm.box_url = "http://aka.ms/vagrant-win7-ie9"
+    v.vm.box_url = "https://az792536.vo.msecnd.net/vms/VMBuild_20150916/Vagrant/IE9/IE9.Win7.Vagrant.zip"
   end
 
   config.vm.define "IE10_Win7" do |v|
     v.vm.box = "IE10_Win7"
-    v.vm.box_url = "http://aka.ms/vagrant-win7-ie10"
+    v.vm.box_url = "https://az792536.vo.msecnd.net/vms/VMBuild_20150916/Vagrant/IE10/IE10.Win7.Vagrant.zip"
   end
 
   config.vm.define "IE11_Win7" do |v|
     v.vm.box = "IE11_Win7"
-    v.vm.box_url = "http://aka.ms/vagrant-win7-ie11"
+    v.vm.box_url = "https://az792536.vo.msecnd.net/vms/VMBuild_20150916/Vagrant/IE11/IE11.Win7.Vagrant.zip"
   end
 
   config.vm.define "IE10_Win8" do |v|
     v.vm.box = "IE10_Win8"
-    v.vm.box_url = "http://aka.ms/vagrant-win8-ie10"
+    v.vm.box_url = "https://az792536.vo.msecnd.net/vms/VMBuild_20150916/Vagrant/IE10/IE10.Win8.Vagrant.zip"
   end
 
   config.vm.define "IE11_Win81" do |v|
     v.vm.box = "IE11_Win81"
-    v.vm.box_url = "http://aka.ms/vagrant-win81-ie11"
+    v.vm.box_url = "https://az792536.vo.msecnd.net/vms/VMBuild_20150916/Vagrant/IE11/IE11.Win81.Vagrant.zip"
+  end
+
+  config.vm.define "MsEdge_Win10" do |v|
+    v.vm.box = "MsEdge_Win10"
+    v.vm.box_url = "https://az792536.vo.msecnd.net/vms/VMBuild_20150916/Vagrant/MsEdge/MsEdge.Win10.Vagrant.zip"
   end
 
   config.vm.communicator = "winrm"
