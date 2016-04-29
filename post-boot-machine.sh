@@ -31,7 +31,7 @@ if [ ! -f "${DEUAC}" ]; then
 fi
 if [ ! -f "${JREWIN}" ]; then
 	downloads_needed=1
-	echo "Windows JRE missing, download into ${DOWNLOADS} from http://www.oracle.com/technetwork/java/javase/downloads/index.html" >&2
+	echo "Windows JRE missing, download into ${DOWNLOADS} from http://java.com/en/download/manual.jsp" >&2
 fi
 if [ ! -f "${SELENIUM}" ]; then
 	downloads_needed=1
