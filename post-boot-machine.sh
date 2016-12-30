@@ -45,7 +45,7 @@ fi
 
 waitforgc() {
 	sleep 5s
-	until VBoxManage guestcontrol $id stat 'C:/' ${GC_OPTS} >/dev/null; do
+	until VBoxManage guestcontrol $id ${GC_OPTS} stat 'C:/' >/dev/null; do
 		sleep 5s
 	done
 }
@@ -83,29 +83,29 @@ disable_uac() {
 }
 
 prepare() {
-	VBoxManage guestcontrol $id mkdir "C:/Temp" --parents ${GC_OPTS} || exit 1
+	VBoxManage guestcontrol $id ${GC_OPTS} mkdir "C:/Temp" --parents || exit 1
 }
 
 configure() {
     # Powershell hangs, even when run from a .bat file, not sure why
-	#VBoxManage guestcontrol $id copyto "${FILES}/vagrant_prepare.bat" "C:/Temp/vagrant_prepare.bat" ${GC_OPTS} || exit 1
-	#VBoxManage guestcontrol $id copyto "${FILES}/vagrant_prepare.ps1" "C:/Temp/vagrant_prepare.ps1" ${GC_OPTS} || exit 1
-	#VBoxManage guestcontrol $id execute --image "C:/Temp/vagrant_prepare.bat" ${GC_OPTS} --wait-exit || exit 1
-	VBoxManage guestcontrol $id execute --image 'C:/windows/system32/netsh.exe' ${GC_OPTS} -- advfirewall set allprofiles state off
+	#VBoxManage guestcontrol $id ${GC_OPTS} copyto "${FILES}/vagrant_prepare.bat" "C:/Temp/vagrant_prepare.bat" || exit 1
+	#VBoxManage guestcontrol $id ${GC_OPTS} copyto "${FILES}/vagrant_prepare.ps1" "C:/Temp/vagrant_prepare.ps1" || exit 1
+	#VBoxManage guestcontrol $id ${GC_OPTS} run --wait-exit "C:/Temp/vagrant_prepare.bat" || exit 1
+	VBoxManage guestcontrol $id ${GC_OPTS} run 'C:/windows/system32/netsh.exe' advfirewall set allprofiles state off
 	waitforgc
 }
 
 install_java() {
-	VBoxManage guestcontrol $id copyto "${JREWIN}" "C:/Temp/jre.exe" ${GC_OPTS} || exit 1
-	VBoxManage guestcontrol $id execute --image "C:/Temp/jre.exe" ${GC_OPTS} --wait-exit -- /s || exit 1
+	VBoxManage guestcontrol $id ${GC_OPTS} copyto "${JREWIN}" "C:/Temp/jre.exe" || exit 1
+	VBoxManage guestcontrol $id ${GC_OPTS} run --wait-exit "C:/Temp/jre.exe" /s || exit 1
 }
 
 install_selenium() {
-	VBoxManage guestcontrol $id mkdir "C:/selenium" --parents ${GC_OPTS} || exit 1
-	VBoxManage guestcontrol $id copyto "${SELENIUM}" 'C:/selenium/selenium-server-standalone.jar' ${GC_OPTS} || exit 1
-	VBoxManage guestcontrol $id copyto "${FILES}/selenium.bat" 'C:/ProgramData/Microsoft/Windows/Start Menu/Programs/Startup/selenium.bat' ${GC_OPTS} || exit 1
-	VBoxManage guestcontrol $id copyto "${FILES}/selenium_conf/WIN7/${vm_ie}/config.json" 'C:/selenium/config.json' ${GC_OPTS} || exit 1
-	VBoxManage guestcontrol $id copyto "${IEDRIVER}" 'C:/Windows/system32/IEDriverServer.exe' ${GC_OPTS} || exit 1
+	VBoxManage guestcontrol $id ${GC_OPTS} mkdir "C:/selenium" --parents || exit 1
+	VBoxManage guestcontrol $id ${GC_OPTS} copyto "${SELENIUM}" 'C:/selenium/selenium-server-standalone.jar' || exit 1
+	VBoxManage guestcontrol $id ${GC_OPTS} copyto "${FILES}/selenium.bat" 'C:/ProgramData/Microsoft/Windows/Start Menu/Programs/Startup/selenium.bat' || exit 1
+	VBoxManage guestcontrol $id ${GC_OPTS} copyto "${FILES}/selenium_conf/WIN7/${vm_ie}/config.json" 'C:/selenium/config.json' || exit 1
+	VBoxManage guestcontrol $id ${GC_OPTS} copyto "${IEDRIVER}" 'C:/Windows/system32/IEDriverServer.exe' || exit 1
 }
 
 # snapshots cause problems with vagrant (1.6 ATM) when destroying
