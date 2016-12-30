@@ -54,7 +54,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   config.vm.define "MsEdge_Win10" do |v|
     v.vm.box = "MsEdge_Win10"
-    v.vm.box_url = "https://az792536.vo.msecnd.net/vms/VMBuild_20150916/Vagrant/MsEdge/MsEdge.Win10.Vagrant.zip"
+    v.vm.box_url = "https://az792536.vo.msecnd.net/vms/VMBuild_20160810/Vagrant/MSEdge/MSEdge.Win10_RS1.Vagrant.zip"
   end
 
   config.vm.communicator = "winrm"
